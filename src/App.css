@@ -1,5 +1,16 @@
+* {
+  box-sizing: border-box;} 
+
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;  /*relativo al viewport cioè a quello che si vede per larghezza vw per la width*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {

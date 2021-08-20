@@ -1,0 +1,12 @@
+.info-user{
+    padding: 10px;
+    height: 130px;
+}
+
+.info-user-descr{
+    color: gray;
+}
+
+.info-user-dett{
+    font-weight: 500;
+}
