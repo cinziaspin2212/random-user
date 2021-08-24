@@ -1,5 +1,14 @@
-.panel-user{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.panel-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+/*.button-leave-grey {
+  text-decoration: none;
+  background-color: grey;
+}
+
+.button-hover-green {
+  text-decoration: none;
+  background-color: #7ed50e;
+} */

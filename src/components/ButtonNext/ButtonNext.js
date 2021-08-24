@@ -4,7 +4,7 @@ import './ButtonNext.css';
 class ButtonNext extends Component {
     render() {
         return (
-            <button className="buttonInfo">Next</button>
+            <button className="buttonInfo" >Next</button>
         )
     }
 
