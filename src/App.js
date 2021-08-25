@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import { Component } from 'react';
-import CardUser from './components/CardUser/CardUser';
-import ButtonNext from './components/ButtonNext/ButtonNext';
+import logo from "./logo.svg";
+import "./App.css";
+import { Component } from "react";
+import CardUser from "./components/CardUser/CardUser";
+import ButtonNext from "./components/ButtonNext/ButtonNext";
 
 class App extends Component {
   state = {
@@ -15,75 +15,90 @@ class App extends Component {
       password: "",
       immage: "",
     },
-    iconPanel:{
-       whoEvent:"",
-    }
-  }
-  
-   mouseOverButtonHandler =(e) =>{
-    console.log("over",e.target.id);
-    console.log('des',document.getElementById('descrizione').value)
-    e.target.style.background = '#7ED50E'; 
-    
-    const el =e.target.id;
-     this.setState({
-      iconPanel:{
-         whoEvent:el,
-      }
-    })
-   
-   }
+    iconPanel: {
+      whoEvent: "",
+    },
+  };
 
-   mouseLeaveButtonHandler =(e) =>{
-    console.log("leave",e.target.id);
-     e.target.style.background = 'gray';
+  mouseOverButtonHandler = (e) => {
+    console.log("over", e.target.id);
+    console.log("des", document.getElementById("descrizione").value);
+    // e.target.style.background = "cornflowerblue";
+
+    const el = e.target.id;
     this.setState({
-      iconPanel:{
-         whoEvent:"",
-      }
-    })
-   }
+      iconPanel: {
+        whoEvent: el,
+      },
+    });
+  };
+
+  mouseLeaveButtonHandler = (e) => {
+    console.log("leave", e.target.id);
+    // e.target.style.background = "gray";
+    this.setState({
+      iconPanel: {
+        whoEvent: "",
+      },
+    });
+  };
   retrieveDataHandler = () => {
-    fetch('https://randomuser.me/api', {
-      method: 'GET', // or 'PUT'
+    fetch("https://randomuser.me/api", {
+      method: "GET", // or 'PUT'
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         //console.log('Success:', data);
         const userData = data.results[0];
         //console.log("userData:", userData)
         this.setState({
           userState: {
-            fullName: userData.name.title + " " + userData.name.first + " " + userData.name.last,
+            fullName:
+              userData.name.title +
+              " " +
+              userData.name.first +
+              " " +
+              userData.name.last,
             email: userData.email,
             birthday: new Date(userData.dob.date).toDateString(),
-            address: userData.location.street.name + " " + userData.location.street.number,
+            address:
+              userData.location.street.name +
+              " " +
+              userData.location.street.number,
             telephone: userData.phone,
             password: userData.login.password,
             immage: userData.picture.medium,
-          }
-        })
-      }
-      )
+          },
+        });
+      })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
-  }
+  };
   componentDidMount() {
     this.retrieveDataHandler();
   }
 
   render() {
-    console.log("userData:", this.state.userState)
+    console.log("userData:", this.state.userState);
     return (
       <div className="App">
-        <CardUser infoUserDet={this.state.userState} infoEvent={this.state.iconPanel} envenHover={(e)=>{this.mouseOverButtonHandler(e)}} evenLeave={(e)=>{this.mouseLeaveButtonHandler(e)}}/>
+        <CardUser
+          infoUserDet={this.state.userState}
+          infoEvent={this.state.iconPanel}
+          envenHover={(e) => {
+            this.mouseOverButtonHandler(e);
+          }}
+          evenLeave={(e) => {
+            this.mouseLeaveButtonHandler(e);
+          }}
+        />
         {/*  passo le info */}
-        <ButtonNext />
-        { /* passo la funzione che cambia lo stato */}
+        <ButtonNext changeUser={this.retrieveDataHandler} />
+        {/* passo la funzione che cambia lo stato */}
       </div>
     );
   }

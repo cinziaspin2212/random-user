@@ -1,12 +1,15 @@
-.info-user{
-    padding: 10px;
-    height: 130px;
+.info-user {
+  padding: 20px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.info-user-descr{
-    color: gray;
+.info-user-descr {
+  color: gray;
 }
 
-.info-user-dett{
-    font-weight: 500;
+.info-user-dett {
+  font-weight: 500;
 }
