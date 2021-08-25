@@ -7,6 +7,7 @@ import Container from "./components/Loading/Loading";
 
 class App extends Component {
   state = {
+    loading: true,
     userState: {
       fullName: "",
       email: "",
@@ -44,7 +45,6 @@ class App extends Component {
     });
   };
   retrieveDataHandler = () => {
-    <Container />
     fetch("https://randomuser.me/api", {
       method: "GET", // or 'PUT'
       headers: {
@@ -57,6 +57,7 @@ class App extends Component {
         const userData = data.results[0];
         //console.log("userData:", userData)
         this.setState({
+          loading: false,
           userState: {
             fullName:
               userData.name.title +
@@ -86,7 +87,9 @@ class App extends Component {
 
   render() {
     console.log("userData:", this.state.userState);
-    return (
+    return this.state.loading ? (
+      <Container />
+    ) : (
       <div className="App">
         <CardUser
           infoUserDet={this.state.userState}
