@@ -18,9 +18,9 @@ class PanelUser extends Component {
         <button
           className="button"
           id="User"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           data-title="User"
-          //onMouseLeave={(e) => this.props.evenLeave(e)}
+          /* onMouseLeave={(e) => this.props.evenLeave(e)}*/
         >
           <FontAwesomeIcon icon={faUser} />
         </button>
@@ -28,7 +28,7 @@ class PanelUser extends Component {
         <button
           className="button"
           id="Email"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           onMouseLeave={(e) => this.props.evenLeave(e)}
           data-title="Email"
         >
@@ -38,7 +38,7 @@ class PanelUser extends Component {
         <button
           className="button"
           id="Birthday"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           onMouseLeave={(e) => this.props.evenLeave(e)}
           data-title="Birthday"
         >
@@ -48,7 +48,7 @@ class PanelUser extends Component {
         <button
           className="button"
           id="Address"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           onMouseLeave={(e) => this.props.evenLeave(e)}
           data-title="Address"
         >
@@ -58,7 +58,7 @@ class PanelUser extends Component {
         <button
           className="button"
           id="Phone"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           onMouseLeave={(e) => this.props.evenLeave(e)}
           data-title="Phone"
         >
@@ -68,7 +68,7 @@ class PanelUser extends Component {
         <button
           className="button"
           id="Password"
-          onMouseOver={(e) => this.props.envenHover(e)}
+          onMouseEnter={(e) => this.props.envenHover(e)}
           onMouseLeave={(e) => this.props.evenLeave(e)}
           data-title="Password"
           // className={

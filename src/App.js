@@ -3,6 +3,7 @@ import "./App.css";
 import { Component } from "react";
 import CardUser from "./components/CardUser/CardUser";
 import ButtonNext from "./components/ButtonNext/ButtonNext";
+import Container from "./components/Loading/Loading";
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
     });
   };
   retrieveDataHandler = () => {
+    <Container />
     fetch("https://randomuser.me/api", {
       method: "GET", // or 'PUT'
       headers: {
