@@ -45,6 +45,10 @@ class App extends Component {
     });
   };
   retrieveDataHandler = () => {
+    this.setState({
+      loading:true,
+    });
+    
     fetch("https://randomuser.me/api", {
       method: "GET", // or 'PUT'
       headers: {
@@ -74,6 +78,9 @@ class App extends Component {
             telephone: userData.phone,
             password: userData.login.password,
             immage: userData.picture.medium,
+          },
+          iconPanel: {
+            whoEvent: "User",
           },
         });
       })

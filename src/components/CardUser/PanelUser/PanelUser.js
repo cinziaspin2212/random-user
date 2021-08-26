@@ -29,7 +29,7 @@ class PanelUser extends Component {
           className="button"
           id="Email"
           onMouseEnter={(e) => this.props.envenHover(e)}
-          onMouseLeave={(e) => this.props.evenLeave(e)}
+         /* onMouseLeave={(e) => this.props.evenLeave(e)}*/
           data-title="Email"
         >
           <FontAwesomeIcon icon={faEnvelopeSquare} />
@@ -39,7 +39,7 @@ class PanelUser extends Component {
           className="button"
           id="Birthday"
           onMouseEnter={(e) => this.props.envenHover(e)}
-          onMouseLeave={(e) => this.props.evenLeave(e)}
+         /* onMouseLeave={(e) => this.props.evenLeave(e)}*/
           data-title="Birthday"
         >
           <FontAwesomeIcon icon={faBirthdayCake} />
@@ -49,7 +49,7 @@ class PanelUser extends Component {
           className="button"
           id="Address"
           onMouseEnter={(e) => this.props.envenHover(e)}
-          onMouseLeave={(e) => this.props.evenLeave(e)}
+       /*   onMouseLeave={(e) => this.props.evenLeave(e)}*/
           data-title="Address"
         >
           <FontAwesomeIcon icon={faHouseUser} />
@@ -59,7 +59,7 @@ class PanelUser extends Component {
           className="button"
           id="Phone"
           onMouseEnter={(e) => this.props.envenHover(e)}
-          onMouseLeave={(e) => this.props.evenLeave(e)}
+        /*  onMouseLeave={(e) => this.props.evenLeave(e)}*/
           data-title="Phone"
         >
           <FontAwesomeIcon icon={faPhoneSquare} />
@@ -69,14 +69,9 @@ class PanelUser extends Component {
           className="button"
           id="Password"
           onMouseEnter={(e) => this.props.envenHover(e)}
-          onMouseLeave={(e) => this.props.evenLeave(e)}
+         /* onMouseLeave={(e) => this.props.evenLeave(e)}*/
           data-title="Password"
-          // className={
-          //   this.props.envenHover.onMouseOver
-          //     ? "button-hover-green"
-          //     : "button-leave-grey"
-          // }
-        >
+         >
           <FontAwesomeIcon icon={faLock} />
         </button>
       </div>
