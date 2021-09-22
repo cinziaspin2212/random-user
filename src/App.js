@@ -1,8 +1,16 @@
 import "./App.css";
-import { Component, useState } from "react";
+import {
+  // Component,
+  useState,
+  createContext,
+  useEffect,
+  useCallback,
+} from "react";
 import CardUser from "./components/CardUser/CardUser";
 import ButtonNext from "./components/ButtonNext/ButtonNext";
 import Container from "./components/Loading/Loading";
+
+export const ImageContext = createContext();
 
 // class App extends Component
 const App = (props) => {
@@ -57,7 +65,7 @@ const App = (props) => {
     });
   };
 
-  const retrieveDataHandler = () => {
+  const retrieveDataHandler = useCallback(() => {
     setLoadingState(true);
 
     fetch("https://randomuser.me/api", {
@@ -96,11 +104,15 @@ const App = (props) => {
       .catch((error) => {
         console.error("Error:", error);
       });
-  };
+  }, []);
 
   // componentDidMount() {
   //   this.retrieveDataHandler();
   // }
+
+  useEffect(() => {
+    retrieveDataHandler();
+  }, [retrieveDataHandler]);
 
   // render() {
   console.log("userData:", userState);
@@ -108,19 +120,21 @@ const App = (props) => {
     <Container />
   ) : (
     <div className="App">
-      <CardUser
-        infoUserDet={userState}
-        infoEvent={iconPanelState}
-        envenHover={(e) => {
-          mouseOverButtonHandler(e);
-        }}
-        evenLeave={(e) => {
-          mouseLeaveButtonHandler(e);
-        }}
-      />
-      {/*  passo le info */}
-      <ButtonNext changeUser={retrieveDataHandler} />
-      {/* passo la funzione che cambia lo stato */}
+      <ImageContext.Provider value={userState.immage}>
+        <CardUser
+          infoUserDet={userState}
+          infoEvent={iconPanelState}
+          envenHover={(e) => {
+            mouseOverButtonHandler(e);
+          }}
+          evenLeave={(e) => {
+            mouseLeaveButtonHandler(e);
+          }}
+        />
+        {/*  passo le info */}
+        <ButtonNext changeUser={retrieveDataHandler} />
+        {/* passo la funzione che cambia lo stato */}
+      </ImageContext.Provider>
     </div>
   );
 };

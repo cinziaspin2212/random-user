@@ -11,7 +11,7 @@ const CardUser = (props) => {
   return (
     <div className="card">
       {/* <ImmageUser infoUserDet={this.props.infoUserDet} /> */}
-      <ImmageUser infoUserDet={props.infoUserDet} />
+      <ImmageUser />
       {/* <InfoUser
           infoUserDet={this.props.infoUserDet}
           infoEvent={this.props.infoEvent}
